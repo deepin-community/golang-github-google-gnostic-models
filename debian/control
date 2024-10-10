@@ -1,15 +1,37 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-google-gnostic-models
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders:
+ Nicolas Schier <nicolas@fjasle.eu>
+Section: golang
+Testsuite: autopkgtest-pkg-go
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-golang,
+ golang-any,
+ golang-google-protobuf-dev,
+ golang-gopkg-yaml.v3-dev,
+ golang-gopkg-check.v1-dev,
+ golang-github-golang-protobuf-1-3-dev | golang-github-golang-protobuf-1-5-dev,
+Standards-Version: 4.6.2
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-google-gnostic-models
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-google-gnostic-models.git
+Homepage: https://github.com/google/gnostic-models
+Rules-Requires-Root: no
+XS-Go-Import-Path: github.com/google/gnostic-models
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-google-gnostic-models-dev
+Architecture: all
+Depends:
+ golang-google-protobuf-dev,
+ golang-gopkg-yaml.v3-dev,
+ golang-gopkg-check.v1-dev,
+ golang-github-golang-protobuf-1-3-dev | golang-github-golang-protobuf-1-5-dev,
+ ${misc:Depends},
+Description: Protocol buffer models for gnostic
+ This repository contains Protocol Buffer models and associated libraries
+ for working with API description formats supported by
+ [gnostic](https://github.com/google/gnostic). It exists to provide a
+ lightweight distribution of these models with minimal dependencies.
+ For more information, please see the
+ [gnostic](https://github.com/google/gnostic) repository.
